@@ -1,5 +1,5 @@
 import React from 'react'
-import {render} from '../index'
+import {render} from '../'
 import cleanupAsync from '../cleanup-async'
 
 afterEach(() => {
@@ -20,13 +20,13 @@ function App() {
   return 123
 }
 
-it('cleanup-after-each does not leave any hanging microtasks: part 1', () => {
+test('cleanup-after-each does not leave any hanging microtasks: part 1', () => {
   render(<App />)
   expect(document.body.textContent).toBe('123')
   expect(log).toEqual([])
 })
 
-it('cleanup-after-each does not leave any hanging microtasks: part 2', () => {
+test('cleanup-after-each does not leave any hanging microtasks: part 2', () => {
   expect(log).toEqual([0])
   expect(document.body.innerHTML).toBe('')
 })

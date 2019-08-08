@@ -52,7 +52,7 @@ test('returns baseElement which defaults to document.body', () => {
   expect(baseElement).toBe(document.body)
 })
 
-it('cleansup document', () => {
+test('cleanup cleans up document', () => {
   const spy = jest.fn()
   const divId = 'my-div'
 
@@ -73,7 +73,7 @@ it('cleansup document', () => {
   expect(spy).toHaveBeenCalledTimes(1)
 })
 
-it('supports fragments', () => {
+test('supports fragments', () => {
   class Test extends React.Component {
     render() {
       return (
@@ -86,8 +86,6 @@ it('supports fragments', () => {
 
   const {asFragment} = render(<Test />)
   expect(asFragment()).toMatchSnapshot()
-  cleanup()
-  expect(document.body.innerHTML).toBe('')
 })
 
 test('renders options.wrapper around node', () => {
